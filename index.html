@@ -159,6 +159,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scikit_learn_test1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title：python机器学习sklearn示例<br>tags：python，scikit-learn</p>
+<pre><code class="python"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+<span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets
+digits = datasets.load_digits()
+
+images_and_labels = l
+ist(zip(digits.images,digits.target))
+plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>),dpi=<span class="number">200</span>)
+<span class="keyword">for</span> index, (image,label) <span class="keyword">in</span> enumerate(images_and_labels[:<span class="number">8</span>]):
+    plt.subplot(<span class="number">2</span>,<span class="number">4</span>,index + <span class="number">1</span>)
+    plt.axis(<span class="string">'off'</span>)
+    plt.imshow(image,cmap=plt.cm.gray_r,interpolation=<span class="string">'nearest'</span>)
+    plt.title(<span class="string">'Digit:%i'</span> % label,fontsize=<span class="number">20</span>)
+
+</code></pre>
+<p><img src="scikit_learn_test1_files/scikit_learn_test1_0_0.png" alt="png"></p>
+<h1 id="把数据分成训练数据集和测试数据集"><a href="#把数据分成训练数据集和测试数据集" class="headerlink" title="把数据分成训练数据集和测试数据集"></a>把数据分成训练数据集和测试数据集</h1><p>from sklearn.cross_validation import train_test_split<br>Xtrain,Xtest,Ytrain,Ytest = train_test_split(digits.data,<br>                             digits.target,test_size=0.20,random_state=2);</p>
+<h1 id="使用支持向量机来训练模型"><a href="#使用支持向量机来训练模型" class="headerlink" title="使用支持向量机来训练模型"></a>使用支持向量机来训练模型</h1><p>from sklearn import svm<br>clf = svm.SVC(gamma=0.001,C=100.)<br>clf.fit(Xtrain,Ytrain);</p>
+<pre><code class="python"><span class="comment"># 把数据分成训练数据集和测试数据集</span>
+<span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split
+Xtrain,Xtest,Ytrain,Ytest = train_test_split(digits.data,
+                                            digits.target,test_size=<span class="number">0.20</span>,random_state=<span class="number">2</span>);
+<span class="comment"># 使用支持向量机来训练模型</span>
+<span class="keyword">from</span> sklearn <span class="keyword">import</span> svm
+clf = svm.SVC(gamma=<span class="number">0.001</span>,C=<span class="number">100.</span>)
+clf.fit(Xtrain,Ytrain);
+clf.score(Xtest,Ytest)
+</code></pre>
+<pre><code>0.9777777777777777
+</code></pre><p>In[6] 中的from sklearn.model_selection import train_test_split区别于上面<br>的from sklearn.cross_validation import train_test_split，因为此sklearn的版本<br>到了0.20.0，所以将cross_validation模块变成了model_selection</p>
+<pre><code class="python">
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/14/scikit_learn_test1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -243,6 +322,7 @@
     </div>
   </div>
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
