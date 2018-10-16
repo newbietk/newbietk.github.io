@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://newbietk.github.io">
-  <title>Archives: 2018/5 | 南风知意</title>
+  <title>过拟合与欠拟合区别与联系 | 南风知意</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个关于学习和生活的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="南风知意">
-<meta property="og:url" content="http://newbietk.github.io/archives/2018/05/index.html">
+  <meta name="description" content="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。12345678# 生成一个20个点的训练样本import numpy as npimport matplotlib.pyplot as pltn_dots = 20# 在[0,1]之间创建20个点x = np.linspace(0,1,n_dots)y = n">
+<meta name="keywords" content="python机器学习,underfitting, overfitting">
+<meta property="og:type" content="article">
+<meta property="og:title" content="过拟合与欠拟合区别与联系">
+<meta property="og:url" content="http://newbietk.github.io/2018/10/16/过拟合与欠拟合区别与联系/index.html">
 <meta property="og:site_name" content="南风知意">
-<meta property="og:description" content="一个关于学习和生活的博客">
+<meta property="og:description" content="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。12345678# 生成一个20个点的训练样本import numpy as npimport matplotlib.pyplot as pltn_dots = 20# 在[0,1]之间创建20个点x = np.linspace(0,1,n_dots)y = n">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://y.photo.qq.com/img?s=1pCYnxyhS&l=y.jpg">
+<meta property="og:image" content="http://y.photo.qq.com/img?s=YgsYx5NeU&l=y.jpg">
+<meta property="og:image" content="http://y.photo.qq.com/img?s=Z0Y4BPNbL&l=y.jpg">
+<meta property="og:updated_time" content="2018-10-16T08:43:47.147Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="南风知意">
-<meta name="twitter:description" content="一个关于学习和生活的博客">
+<meta name="twitter:title" content="过拟合与欠拟合区别与联系">
+<meta name="twitter:description" content="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。12345678# 生成一个20个点的训练样本import numpy as npimport matplotlib.pyplot as pltn_dots = 20# 在[0,1]之间创建20个点x = np.linspace(0,1,n_dots)y = n">
+<meta name="twitter:image" content="http://y.photo.qq.com/img?s=1pCYnxyhS&l=y.jpg">
   
     <link rel="alternative" href="/atom.xml" title="南风知意" type="application/atom+xml">
   
@@ -157,49 +163,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-过拟合与欠拟合区别与联系" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/27/post/" class="archive-article-date">
-  	<time datetime="2018-05-27T14:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/27/post/">我的第一篇博客</a>
+    <h1 class="article-title" itemprop="name">
+      过拟合与欠拟合区别与联系
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2018/10/16/过拟合与欠拟合区别与联系/" class="archive-article-date">
+  	<time datetime="2018-10-16T08:40:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。"><a href="#何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。" class="headerlink" title="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。"></a>何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。</h1><h1 id="何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。"><a href="#何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。" class="headerlink" title="何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。"></a>何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个20个点的训练样本</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">n_dots = <span class="number">20</span></span><br><span class="line"><span class="comment"># 在[0,1]之间创建20个点</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">1</span>,n_dots)</span><br><span class="line">y = np.sqrt(x)+<span class="number">0.2</span>*np.random.rand(n_dots) - <span class="number">0.1</span>;</span><br><span class="line">plt.plot(x,y,<span class="string">'blue'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://y.photo.qq.com/img?s=1pCYnxyhS&amp;l=y.jpg" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_polynomial_fit</span><span class="params">(x, y, order)</span>:</span></span><br><span class="line">    p = np.poly1d(np.polyfit(x, y, order))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 画出拟合出来的多项式所表达的曲线以及原始的点</span></span><br><span class="line">    t = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">200</span>)</span><br><span class="line">    plt.plot(x, y, <span class="string">'ro'</span>, t, p(t), <span class="string">'-'</span>, t, np.sqrt(t), <span class="string">'r--'</span>)</span><br><span class="line">    <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>, <span class="number">4</span>), dpi=<span class="number">180</span>)</span><br><span class="line">titles = [<span class="string">'under fitting'</span>, <span class="string">'fitting'</span>, <span class="string">'over fitting'</span>]</span><br><span class="line">models = [<span class="keyword">None</span>, <span class="keyword">None</span>, <span class="keyword">None</span>]</span><br><span class="line"><span class="keyword">for</span> index, order <span class="keyword">in</span> enumerate([<span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>]):</span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">3</span>, index + <span class="number">1</span>)</span><br><span class="line">    models[index] = plot_polynomial_fit(x, y, order)</span><br><span class="line">    plt.title(titles[index], fontsize=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://y.photo.qq.com/img?s=YgsYx5NeU&amp;l=y.jpg" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> models:</span><br><span class="line">    print(<span class="string">'model coeffs: &#123;0&#125;'</span>.format(m.coeffs))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 针对一阶多项式的模型，不同的参数拟合出来的直线和训练样本对应的位置关系</span></span><br><span class="line">coeffs_1d = [<span class="number">0.2</span>, <span class="number">0.6</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">9</span>, <span class="number">6</span>), dpi=<span class="number">200</span>)</span><br><span class="line">t = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">200</span>)</span><br><span class="line">plt.plot(x, y, <span class="string">'ro'</span>, t, models[<span class="number">0</span>](t), <span class="string">'-'</span>, t, np.poly1d(coeffs_1d)(t), <span class="string">'r-'</span>)</span><br><span class="line">plt.annotate(<span class="string">r'L1: $y = &#123;1&#125; + &#123;0&#125;x$'</span>.format(coeffs_1d[<span class="number">0</span>], coeffs_1d[<span class="number">1</span>]),</span><br><span class="line">             xy=(<span class="number">0.8</span>, np.poly1d(coeffs_1d)(<span class="number">0.8</span>)), xycoords=<span class="string">'data'</span>,</span><br><span class="line">             xytext=(<span class="number">-90</span>, <span class="number">-50</span>), textcoords=<span class="string">'offset points'</span>, fontsize=<span class="number">16</span>,</span><br><span class="line">             arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</span><br><span class="line">plt.annotate(<span class="string">r'L2: $y = &#123;1&#125; + &#123;0&#125;x$'</span>.format(models[<span class="number">0</span>].coeffs[<span class="number">0</span>], models[<span class="number">0</span>].coeffs[<span class="number">1</span>]),</span><br><span class="line">             xy=(<span class="number">0.3</span>, models[<span class="number">0</span>](<span class="number">0.3</span>)), xycoords=<span class="string">'data'</span>,</span><br><span class="line">             xytext=(<span class="number">-90</span>, <span class="number">-50</span>), textcoords=<span class="string">'offset points'</span>, fontsize=<span class="number">16</span>,</span><br><span class="line">             arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="http://y.photo.qq.com/img?s=Z0Y4BPNbL&amp;l=y.jpg" alt="png"></p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的支持将是我继续创作的最大动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://y.photo.qq.com/img?s=Q5K5q8sUl&amp;l=y.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python机器学习,underfitting, overfitting</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://newbietk.github.io/2018/10/16/过拟合与欠拟合区别与联系/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/10/15/python小技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python小技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="过拟合与欠拟合区别与联系" data-title="过拟合与欠拟合区别与联系" data-url="http://newbietk.github.io/2018/10/16/过拟合与欠拟合区别与联系/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://newbietk.github.io/2018/10/16/过拟合与欠拟合区别与联系/", 
+    sourceId: "过拟合与欠拟合区别与联系",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -223,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
