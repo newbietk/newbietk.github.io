@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://newbietk.github.io">
-  <title>南风知意</title>
+  <title>Tag: overfitting | 南风知意</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一个关于学习和生活的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="南风知意">
-<meta property="og:url" content="http://newbietk.github.io/index.html">
+<meta property="og:url" content="http://newbietk.github.io/tags/overfitting/index.html">
 <meta property="og:site_name" content="南风知意">
 <meta property="og:description" content="一个关于学习和生活的博客">
 <meta property="og:locale" content="zh-CN">
@@ -165,42 +165,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-过拟合与欠拟合区别与联系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/10/16/过拟合与欠拟合区别与联系/" class="archive-article-date">
+  	<time datetime="2018-10-16T08:40:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-16</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/16/过拟合与欠拟合区别与联系/">过拟合与欠拟合区别与联系</a>
+      <a class="archive-article-title" href="/2018/10/16/过拟合与欠拟合区别与联系/">过拟合与欠拟合区别与联系</a>
     </h1>
   
 
-        
-        <a href="/2018/10/16/过拟合与欠拟合区别与联系/" class="archive-article-date">
-  	<time datetime="2018-10-16T08:40:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。"><a href="#何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。" class="headerlink" title="何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。"></a>何为过拟合：过拟合是指能很好拟合训练样本，但对新数据的预测准确性差。</h1><h1 id="何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。"><a href="#何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。" class="headerlink" title="何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。"></a>何为欠拟合：欠拟合是指不能很好拟合训练样本，对新数据预测准确性也不好。</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个20个点的训练样本</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">n_dots = <span class="number">20</span></span><br><span class="line"><span class="comment"># 在[0,1]之间创建20个点</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">1</span>,n_dots)</span><br><span class="line">y = np.sqrt(x)+<span class="number">0.2</span>*np.random.rand(n_dots) - <span class="number">0.1</span>;</span><br><span class="line">plt.plot(x,y,<span class="string">'blue'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://y.photo.qq.com/img?s=1pCYnxyhS&amp;l=y.jpg" alt="png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_polynomial_fit</span><span class="params">(x, y, order)</span>:</span></span><br><span class="line">    p = np.poly1d(np.polyfit(x, y, order))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 画出拟合出来的多项式所表达的曲线以及原始的点</span></span><br><span class="line">    t = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">200</span>)</span><br><span class="line">    plt.plot(x, y, <span class="string">'ro'</span>, t, p(t), <span class="string">'-'</span>, t, np.sqrt(t), <span class="string">'r--'</span>)</span><br><span class="line">    <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>, <span class="number">4</span>), dpi=<span class="number">180</span>)</span><br><span class="line">titles = [<span class="string">'under fitting'</span>, <span class="string">'fitting'</span>, <span class="string">'over fitting'</span>]</span><br><span class="line">models = [<span class="keyword">None</span>, <span class="keyword">None</span>, <span class="keyword">None</span>]</span><br><span class="line"><span class="keyword">for</span> index, order <span class="keyword">in</span> enumerate([<span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>]):</span><br><span class="line">    plt.subplot(<span class="number">1</span>, <span class="number">3</span>, index + <span class="number">1</span>)</span><br><span class="line">    models[index] = plot_polynomial_fit(x, y, order)</span><br><span class="line">    plt.title(titles[index], fontsize=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://y.photo.qq.com/img?s=YgsYx5NeU&amp;l=y.jpg" alt="png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> models:</span><br><span class="line">    print(<span class="string">'model coeffs: &#123;0&#125;'</span>.format(m.coeffs))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 针对一阶多项式的模型，不同的参数拟合出来的直线和训练样本对应的位置关系</span></span><br><span class="line">coeffs_1d = [<span class="number">0.2</span>, <span class="number">0.6</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">9</span>, <span class="number">6</span>), dpi=<span class="number">200</span>)</span><br><span class="line">t = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">200</span>)</span><br><span class="line">plt.plot(x, y, <span class="string">'ro'</span>, t, models[<span class="number">0</span>](t), <span class="string">'-'</span>, t, np.poly1d(coeffs_1d)(t), <span class="string">'r-'</span>)</span><br><span class="line">plt.annotate(<span class="string">r'L1: $y = &#123;1&#125; + &#123;0&#125;x$'</span>.format(coeffs_1d[<span class="number">0</span>], coeffs_1d[<span class="number">1</span>]),</span><br><span class="line">             xy=(<span class="number">0.8</span>, np.poly1d(coeffs_1d)(<span class="number">0.8</span>)), xycoords=<span class="string">'data'</span>,</span><br><span class="line">             xytext=(<span class="number">-90</span>, <span class="number">-50</span>), textcoords=<span class="string">'offset points'</span>, fontsize=<span class="number">16</span>,</span><br><span class="line">             arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</span><br><span class="line">plt.annotate(<span class="string">r'L2: $y = &#123;1&#125; + &#123;0&#125;x$'</span>.format(models[<span class="number">0</span>].coeffs[<span class="number">0</span>], models[<span class="number">0</span>].coeffs[<span class="number">1</span>]),</span><br><span class="line">             xy=(<span class="number">0.3</span>, models[<span class="number">0</span>](<span class="number">0.3</span>)), xycoords=<span class="string">'data'</span>,</span><br><span class="line">             xytext=(<span class="number">-90</span>, <span class="number">-50</span>), textcoords=<span class="string">'offset points'</span>, fontsize=<span class="number">16</span>,</span><br><span class="line">             arrowprops=dict(arrowstyle=<span class="string">"-&gt;"</span>, connectionstyle=<span class="string">"arc3,rad=.2"</span>))</span><br></pre></td></tr></table></figure>
-<p><img src="http://y.photo.qq.com/img?s=Z0Y4BPNbL&amp;l=y.jpg" alt="png"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -220,267 +212,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/16/过拟合与欠拟合区别与联系/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-python小技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/15/python小技巧/">python小技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/15/python小技巧/" class="archive-article-date">
-  	<time datetime="2018-10-15T09:32:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="如何将ipython-notebook格式转化为markdown格式并部署到github上？"><a href="#如何将ipython-notebook格式转化为markdown格式并部署到github上？" class="headerlink" title="如何将ipython notebook格式转化为markdown格式并部署到github上？"></a>如何将ipython notebook格式转化为markdown格式并部署到github上？</h3><p>在命令行中使用下面语句可以直接将ipynb格式转化为markdown格式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython nbconvert --to markdown  filename.ipynb</span><br></pre></td></tr></table></figure></p>
-<h3 id="更改ipython-notebook的主题"><a href="#更改ipython-notebook的主题" class="headerlink" title="更改ipython notebook的主题"></a>更改ipython notebook的主题</h3><p>由于ipython notebook默认主题是白色的界面，不仅难看，而且对眼睛伤害大，通过命令行下载主题（前提是你安装了pip）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade jupyterthemes</span><br></pre></td></tr></table></figure></p>
-<p>然后利用命令“jt -l”，查看下载的主题：<br><img src="http://y.photo.qq.com/img?s=athP7EdIg&amp;l=y.jpg" alt="png"><br>利用“jt -t 主题”切换主题。</p>
-<h1 id="此文持续更新，记录小技巧以及躺过的坑。。。"><a href="#此文持续更新，记录小技巧以及躺过的坑。。。" class="headerlink" title="此文持续更新，记录小技巧以及躺过的坑。。。"></a>此文持续更新，记录小技巧以及躺过的坑。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/15/python小技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python机器学习sklearn实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/14/python机器学习sklearn实例/">python机器学习sklearn实例</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/14/python机器学习sklearn实例/" class="archive-article-date">
-  	<time datetime="2018-10-14T12:12:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">digits = datasets.load_digits()</span><br><span class="line"></span><br><span class="line">images_and_labels = l</span><br><span class="line">ist(zip(digits.images,digits.target))</span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>),dpi=<span class="number">200</span>)</span><br><span class="line"><span class="keyword">for</span> index, (image,label) <span class="keyword">in</span> enumerate(images_and_labels[:<span class="number">8</span>]):</span><br><span class="line">    plt.subplot(<span class="number">2</span>,<span class="number">4</span>,index + <span class="number">1</span>)</span><br><span class="line">    plt.axis(<span class="string">'off'</span>)</span><br><span class="line">    plt.imshow(image,cmap=plt.cm.gray_r,interpolation=<span class="string">'nearest'</span>)</span><br><span class="line">    plt.title(<span class="string">'Digit:%i'</span> % label,fontsize=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="http://y.photo.qq.com/img?s=BlQLW9YT8&amp;l=y.jpg" alt="png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把数据分成训练数据集和测试数据集</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">Xtrain,Xtest,Ytrain,Ytest = train_test_split(digits.data,</span><br><span class="line">                                            digits.target,test_size=<span class="number">0.20</span>,random_state=<span class="number">2</span>);</span><br><span class="line"><span class="comment"># 使用支持向量机来训练模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line">clf = svm.SVC(gamma=<span class="number">0.001</span>,C=<span class="number">100.</span>)</span><br><span class="line">clf.fit(Xtrain,Ytrain);</span><br><span class="line">clf.score(Xtest,Ytest)</span><br></pre></td></tr></table></figure>
-<p>   结果显示：0.9777777777777777</p>
-<h1 id="注意由于sklearn版本的不同，可能会没有mudel-cross-validation，通过版本升级解决问题"><a href="#注意由于sklearn版本的不同，可能会没有mudel-cross-validation，通过版本升级解决问题" class="headerlink" title="注意由于sklearn版本的不同，可能会没有mudel cross_validation，通过版本升级解决问题"></a>注意由于sklearn版本的不同，可能会没有mudel cross_validation，通过版本升级解决问题</h1><hr>
-<p>其中的from sklearn.model_selection import train_test_split区别于上面<br>的from sklearn.cross_validation import train_test_split，因为此sklearn的版本</p>
-<h2 id="到了0-20-0，所以将cross-validation模块变成了model-selection"><a href="#到了0-20-0，所以将cross-validation模块变成了model-selection" class="headerlink" title="到了0.20.0，所以将cross_validation模块变成了model_selection"></a>到了0.20.0，所以将cross_validation模块变成了model_selection</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">scikit-learn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/14/python机器学习sklearn实例/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/post/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/27/post/" class="archive-article-date">
-  	<time datetime="2018-05-27T14:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于博主："><a href="#关于博主：" class="headerlink" title="关于博主："></a>关于博主：</h2><hr>
-<p>博主现在大二，大一的时候浑浑噩噩好像并没有要自学一些技术性的东西。等到了大二才觉得纸上得来终觉浅，想要另辟蹊径，做一些自己感兴趣并且能充实生活的事情。于是搭建了这样一个博客，分享一些学习和生活上的事情，与君共勉！</p>
-<h2 id="关于学习："><a href="#关于学习：" class="headerlink" title="关于学习："></a>关于学习：</h2><hr>
-<p>博主本科学习的信息安全专业，但是这方面的知识很是欠缺。想要在接下来的一段时间里入坑，打开黑客世界的大门。对Web安全、漏洞攻击、python爬虫方面比较感兴趣，仅以此博客作为学习躺坑积累经验的记录。我会将学习的经验及心得分享给大家，欢迎大家批评指正！</p>
-<h3 id="这里分享一个室友的信安学习之路：博客链接"><a href="#这里分享一个室友的信安学习之路：博客链接" class="headerlink" title="这里分享一个室友的信安学习之路：博客链接"></a>这里分享一个室友的信安学习之路：<a href="http://www.lntro.xyz/" title="lntro" target="_blank" rel="noopener">博客链接</a></h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/27/post/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -503,10 +247,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
