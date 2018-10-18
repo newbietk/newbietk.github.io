@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://newbietk.github.io">
-  <title>Tag: python机器学习 | 南风知意</title>
+  <title>python机器学习之k-近邻算法 | 南风知意</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个关于学习和生活的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="南风知意">
-<meta property="og:url" content="http://newbietk.github.io/tags/python机器学习/index.html">
+  <meta name="description" content="k-近邻算法（knn算法）可以解决分类问题，也可以解决回归问题算法原理：计算待标记的数据样本和数据集中每个样本的距离，距离最近的k个样本。待标记的数据样本所属类别就由这k’个距离最近的样本投票产生 12345678# 示例：使用k-近邻算法进行分类import matplotlib.pyplot as pltimport numpy as npfrom sklearn.datasets.sampl">
+<meta name="keywords" content="python机器学习,k-近邻算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python机器学习之k-近邻算法">
+<meta property="og:url" content="http://newbietk.github.io/2018/10/18/python机器学习之k-近邻算法/index.html">
 <meta property="og:site_name" content="南风知意">
-<meta property="og:description" content="一个关于学习和生活的博客">
+<meta property="og:description" content="k-近邻算法（knn算法）可以解决分类问题，也可以解决回归问题算法原理：计算待标记的数据样本和数据集中每个样本的距离，距离最近的k个样本。待标记的数据样本所属类别就由这k’个距离最近的样本投票产生 12345678# 示例：使用k-近邻算法进行分类import matplotlib.pyplot as pltimport numpy as npfrom sklearn.datasets.sampl">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://y.photo.qq.com/img?s=MBAwWVAXD&l=y.jpg">
+<meta property="og:updated_time" content="2018-10-18T08:14:19.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="南风知意">
-<meta name="twitter:description" content="一个关于学习和生活的博客">
+<meta name="twitter:title" content="python机器学习之k-近邻算法">
+<meta name="twitter:description" content="k-近邻算法（knn算法）可以解决分类问题，也可以解决回归问题算法原理：计算待标记的数据样本和数据集中每个样本的距离，距离最近的k个样本。待标记的数据样本所属类别就由这k’个距离最近的样本投票产生 12345678# 示例：使用k-近邻算法进行分类import matplotlib.pyplot as pltimport numpy as npfrom sklearn.datasets.sampl">
+<meta name="twitter:image" content="http://y.photo.qq.com/img?s=MBAwWVAXD&l=y.jpg">
   
     <link rel="alternative" href="/atom.xml" title="南风知意" type="application/atom+xml">
   
@@ -163,36 +167,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python机器学习之k-近邻算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/18/python机器学习之k-近邻算法/" class="archive-article-date">
-  	<time datetime="2018-10-18T08:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/18/python机器学习之k-近邻算法/">python机器学习之k-近邻算法</a>
+    <h1 class="article-title" itemprop="name">
+      python机器学习之k-近邻算法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/18/python机器学习之k-近邻算法/" class="archive-article-date">
+  	<time datetime="2018-10-18T08:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>k-近邻算法（knn算法）可以解决分类问题，也可以解决回归问题<br>算法原理：计算待标记的数据样本和数据集中每个样本的距离，<br>距离最近的k个样本。待标记的数据样本所属类别就由这k’个距离最近的样本投票产生</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例：使用k-近邻算法进行分类</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets.samples_generator <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">centers = [[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">-2</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">4</span>]]</span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">60</span>,centers = centers,</span><br><span class="line">                 random_state = <span class="number">0</span>,cluster_std = <span class="number">0.60</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="make-blobs函数用法："><a href="#make-blobs函数用法：" class="headerlink" title="make_blobs函数用法："></a>make_blobs函数用法：</h1><p>make_blobs(n_samples=’’,n_features=’’,centers=’’,cluster_std=’’,random_state=’’….)<br>n_samples:int类型，默认100，用于聚类的所有样本总数<br>n_feafure:int类型，默认2，每个类的特征数<br>centers:int类型 or 数组型，默认3，生成或者固定的中心位置<br>cluster_std：float类型，默认1.0，聚类标准差<br>random_state:随机种子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 画出数据</span></span><br><span class="line">plt.figure(figsize=(<span class="number">16</span>,<span class="number">12</span>),dpi=<span class="number">144</span>)  <span class="comment">#画出图形轮廓</span></span><br><span class="line">c = np.array(centers)</span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>],X[:, <span class="number">1</span>],c=y,s=<span class="number">100</span>,cmap=<span class="string">'cool'</span>); <span class="comment">#画出样本</span></span><br><span class="line">plt.scatter(c[:, <span class="number">0</span>],c[:, <span class="number">1</span>],s=<span class="number">100</span>,marker=<span class="string">'^'</span>,c =<span class="string">'orange'</span>); <span class="comment">#画出中心点</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://y.photo.qq.com/img?s=MBAwWVAXD&amp;l=y.jpg" alt="png"></p>
+<p>关于scatter函数中参数不清楚的地方可以参见：<a href="https://www.cnblogs.com/shanlizi/p/6850318.html" target="_blank" rel="noopener">https://www.cnblogs.com/shanlizi/p/6850318.html</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的支持将是我继续创作的最大动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://y.photo.qq.com/img?s=Q5K5q8sUl&amp;l=y.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,65 +242,137 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://newbietk.github.io/2018/10/18/python机器学习之k-近邻算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/16/过拟合与欠拟合区别与联系/" class="archive-article-date">
-  	<time datetime="2018-10-16T08:40:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/16/过拟合与欠拟合区别与联系/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">过拟合与欠拟合区别与联系</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/16/过拟合与欠拟合区别与联系/">过拟合与欠拟合区别与联系</a>
-    </h1>
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="python机器学习之k-近邻算法" data-title="python机器学习之k-近邻算法" data-url="http://newbietk.github.io/2018/10/18/python机器学习之k-近邻算法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://newbietk.github.io/2018/10/18/python机器学习之k-近邻算法/", 
+    sourceId: "python机器学习之k-近邻算法",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">underfitting</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">overfitting</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -290,9 +396,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

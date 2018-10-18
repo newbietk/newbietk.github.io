@@ -165,6 +165,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python机器学习之k-近邻算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/18/python机器学习之k-近邻算法/">python机器学习之k-近邻算法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/18/python机器学习之k-近邻算法/" class="archive-article-date">
+  	<time datetime="2018-10-18T08:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>k-近邻算法（knn算法）可以解决分类问题，也可以解决回归问题<br>算法原理：计算待标记的数据样本和数据集中每个样本的距离，<br>距离最近的k个样本。待标记的数据样本所属类别就由这k’个距离最近的样本投票产生</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例：使用k-近邻算法进行分类</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets.samples_generator <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line">centers = [[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">-2</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">4</span>]]</span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">60</span>,centers = centers,</span><br><span class="line">                 random_state = <span class="number">0</span>,cluster_std = <span class="number">0.60</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="make-blobs函数用法："><a href="#make-blobs函数用法：" class="headerlink" title="make_blobs函数用法："></a>make_blobs函数用法：</h1><p>make_blobs(n_samples=’’,n_features=’’,centers=’’,cluster_std=’’,random_state=’’….)<br>n_samples:int类型，默认100，用于聚类的所有样本总数<br>n_feafure:int类型，默认2，每个类的特征数<br>centers:int类型 or 数组型，默认3，生成或者固定的中心位置<br>cluster_std：float类型，默认1.0，聚类标准差<br>random_state:随机种子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 画出数据</span></span><br><span class="line">plt.figure(figsize=(<span class="number">16</span>,<span class="number">12</span>),dpi=<span class="number">144</span>)  <span class="comment">#画出图形轮廓</span></span><br><span class="line">c = np.array(centers)</span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>],X[:, <span class="number">1</span>],c=y,s=<span class="number">100</span>,cmap=<span class="string">'cool'</span>); <span class="comment">#画出样本</span></span><br><span class="line">plt.scatter(c[:, <span class="number">0</span>],c[:, <span class="number">1</span>],s=<span class="number">100</span>,marker=<span class="string">'^'</span>,c =<span class="string">'orange'</span>); <span class="comment">#画出中心点</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://y.photo.qq.com/img?s=MBAwWVAXD&amp;l=y.jpg" alt="png"></p>
+<p>关于scatter函数中参数不清楚的地方可以参见：<a href="https://www.cnblogs.com/shanlizi/p/6850318.html" target="_blank" rel="noopener">https://www.cnblogs.com/shanlizi/p/6850318.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">k-近邻算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/18/python机器学习之k-近邻算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-过拟合与欠拟合区别与联系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -574,14 +657,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python , scikit-learn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python机器学习,underfitting, overfitting</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -599,6 +674,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">overfitting</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">k-近邻算法</a>
               </li>
             
             <div class="clearfix"></div>
