@@ -294,7 +294,7 @@ Name: 月租金, dtype: float64
 <p>最后就是将预测结果写入csv文件中，提交到平台的便是这个csv文件。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sub = pd.DataFrame()</span><br><span class="line">sub[<span class="string">'id'</span>] = id</span><br><span class="line">sub[<span class="string">'price'</span>] = xgb_pred</span><br><span class="line">sub.to_csv(<span class="string">'sample.csv'</span>, index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
 <p>这次比赛最终我们提交的是我队友的文件，他进一步进行了lgb模型的调参以及模型融合，当然你还可以选取更多的模型进行测试，本次比赛有一个bug，那就是在A榜我们成绩在前十名，然而B榜成绩下滑到了三十名开外，最终只得到二等奖，稍有遗憾，分析原因可能还是因为过拟合了，在过拟合这个问题上我们没有充分重视，大家在实战中可以通过画出学习曲线或者进一步调节参数中的max_depth来解决过拟合问题。</p>
-<h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><p>本次比赛也算是入门大数据方向了吧，但是前路漫漫，何其艰辛，仅以此记，聊表欣慰。不足之处，请多海涵。比赛所用源代码大家可以到我的github:<a href="https://github.com/newbietk/newbietk.github.io进行查看或者下载。" target="_blank" rel="noopener">https://github.com/newbietk/newbietk.github.io进行查看或者下载。</a></p>
+<h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><h2 id="本次比赛也算是入门大数据方向了吧，但是前路漫漫，何其艰辛，仅以此记，聊表欣慰。不足之处，请多海涵。比赛所用源代码大家可以到我的github进行查看或者下载。"><a href="#本次比赛也算是入门大数据方向了吧，但是前路漫漫，何其艰辛，仅以此记，聊表欣慰。不足之处，请多海涵。比赛所用源代码大家可以到我的github进行查看或者下载。" class="headerlink" title="本次比赛也算是入门大数据方向了吧，但是前路漫漫，何其艰辛，仅以此记，聊表欣慰。不足之处，请多海涵。比赛所用源代码大家可以到我的github进行查看或者下载。"></a>本次比赛也算是入门大数据方向了吧，但是前路漫漫，何其艰辛，仅以此记，聊表欣慰。不足之处，请多海涵。比赛所用源代码大家可以到我的github进行查看或者下载。</h2><p>github地址：<a href="https://github.com/newbietk/newbietk.github.io" target="_blank" rel="noopener">https://github.com/newbietk/newbietk.github.io</a></p>
 
       
 
